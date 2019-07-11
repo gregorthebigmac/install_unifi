@@ -93,16 +93,16 @@ if [[ "$distro" == "Ubuntu" ]]; then
     if [[ "$version" == "1604" ]]; then
         echo "Downloading install script for $distro $version..."
         script_number="${distro}_${version}_install.sh"
-        wget -c "${u1604}" -o "${script_number}"
+        wget -c $u1604 -o $script_number
     elif [[ "$version" == "1804" ]]; then
         script_number="${distro}_${version}_install.sh"
-        wget -c "${u1804}" -o "${script_number}"
+        wget -c $u1804 -o $script_number
     elif [[ "$version" == "1810" ]]; then
         script_number="${distro}_${version}_install.sh"
-        wget -c "${u1810}" -o "${script_number}"
+        wget -c $u1810 -o $script_number
     elif [[ "$version" == "1904" ]]; then
         script_number="${distro}_${version}_install.sh"
-        wget -c "${u1904}" -o "${script_number}"
+        wget -c $u1904 -o $script_number}
     else
         echo "Sorry, but $distro version $version wasn't an option. Try running this script"
         echo "with -h for a list of supported distros and their versions."
@@ -111,10 +111,10 @@ if [[ "$distro" == "Ubuntu" ]]; then
 elif [[ "$distro" == "Mint" ]]; then
     if [[ "$version" == "18" ]]; then
         script_number="${distro}_${version}_install.sh"
-        wget -c "${u1804}" -o "${script_number}"
+        wget -c $u1804 -o $script_number
     elif [[ "$version" == "19" ]]; then
         script_number="${distro}_${version}_install.sh"
-        wget -c "${u1810}" -o "${script_number}"
+        wget -c $u1810 -o $script_number
     else
         echo "Sorry, but $distro version $version wasn't an option. Try running this script"
         echo "with -h for a list of supported distros and their versions."
@@ -125,13 +125,13 @@ fi
 if [[ "$distro" == "Debian" ]]; then
     if [[ "$version" == "8" ]]; then
         script_number="${distro}_${version}_install.sh"
-        wget -c "${d8}" -o "${script_number}"
+        wget -c $d8 -o $script_number
     elif [[ "$version" == "9" ]]; then
         script_number="${distro}_${version}_install.sh"
-        wget -c "${d9}" -o "${script_number}"
+        wget -c $d9 -o $script_number
     elif [[ "$version" == "10" ]]; then
         script_number="${distro}_${version}_install.sh"
-        wget -c "${d10}" -o "${script_number}"
+        wget -c $d10 -o $script_number
     else
         echo " Sorry, but $distro version $version wasn't an option. Try running this script"
         echo "with -h for a list of supported distros and their versions."
@@ -139,6 +139,6 @@ if [[ "$distro" == "Debian" ]]; then
     fi
 fi
 
-chmod 755 "${script_number}"
-rm unifi-5.6.42.sh
-sudo sh "${script_number}"
+rm $script_number
+mv unifi-5.6.42.sh $script_number
+sudo ./$script_number
