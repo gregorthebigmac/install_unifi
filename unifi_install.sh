@@ -139,6 +139,7 @@ if [[ "$distro" == "Debian" ]]; then
     fi
 fi
 
-rm $script_number
+#rm $script_number
 mv unifi-5.6.42.sh $script_number
+chmod 755 $script_number
 sudo ./$script_number
